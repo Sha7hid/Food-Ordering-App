@@ -1,10 +1,12 @@
 import Layout from '@/components/Layout'
+import Services from '@/components/Services'
 import Head from 'next/head'
-
+import Hero from '../components/Hero'
+import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <Layout>
-    <>
+    <div className={styles.container} >
       <Head>
         <title>Foody</title>
         <meta name="description" content="For your tasty buds" />
@@ -12,11 +14,12 @@ export default function Home() {
         <link rel="icon" href="/Logo.png" />
       </Head>
 <main>
-<h1>Foody...</h1>
+<Hero/>
+<Services/>
 </main>
  
 
-    </>
+    </div>
     </Layout>
 
   )
