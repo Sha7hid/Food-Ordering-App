@@ -9,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconscout/react-unicons": "^2.0.0",
+    "@mantine/core": "^6.0.4",
+    "@mantine/hooks": "^6.0.4",
     "@next/font": "13.2.4",
+    "@stripe/stripe-js": "^1.52.0",
     "next": "13.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "stripe": "^11.16.0",
+    "zustand": "^4.3.6"
   }
 }
