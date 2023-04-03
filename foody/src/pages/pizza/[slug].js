@@ -5,6 +5,10 @@ import styles from '../../styles/Pizza.module.css'
 import LeftArrow from 'public/arrowLeft.png'
 import RightArrow from 'public/arrowRight.png'
 import {useState} from 'react'
+import useStore from "store/store";
+// to show added to cart animation
+import toast,{ Toaster} from 'react-hot-toast'
+
 export default function Pizza({pizza})  {
     const src = urlFor(pizza.image).url()
     const [Size, setSize] = useState(1);
@@ -15,7 +19,13 @@ export default function Pizza({pizza})  {
 type === 'inc'?
 setQuantity((prev)=> prev+1) :
 Quantity === 1? null : setQuantity((prev)=>prev-1)
-    }
+    };
+// add to cart function
+const addPizza = useStore((state)=> state.addPizza)
+const addToCart = () => {
+    addPizza({...pizza, price: pizza.price[Size],quantity: Quantity, size : Size})
+    toast.success("Added to Cart")
+}
   return(
     <Layout>
       <div className={styles.container}>
@@ -72,10 +82,11 @@ onClick={()=>handleQuan("inc")}
       </div>
 
       {/* button */}
-      <div className={`btn ${styles.btn}`}>
+      <div className={`btn ${styles.btn}`} onClick={addToCart}>
 Add To Cart
       </div>
       </div>
+      <Toaster/>
       </div>
 
   

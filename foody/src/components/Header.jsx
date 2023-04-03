@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from '../styles/Header.module.css'
 import Logo from 'public/Logo.png'
 import {UilShoppingBag} from '@iconscout/react-unicons'
- import  { useStore } from '../../store/store';
+ import   useStore  from '../../store/store';
 export default function Header() {
   // state in terminal
   const state = useStore((state)=> state)
