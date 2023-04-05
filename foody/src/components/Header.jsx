@@ -3,6 +3,7 @@ import styles from '../styles/Header.module.css'
 import Logo from 'public/Logo.png'
 import {UilShoppingBag} from '@iconscout/react-unicons'
  import   useStore  from '../../store/store';
+import Link from 'next/link';
 export default function Header() {
   // state in terminal
   const state = useStore((state)=> state)
@@ -23,12 +24,16 @@ export default function Header() {
        </ul>
        {/* right side */}
        <div className={styles.rightSide}>
-        <div className={styles.cart}>
+<Link href='/cart'>
+<div className={styles.cart}>
           <UilShoppingBag size={35} color="2E2E2E"/>
           <div className={styles.badge}>
             {items}
           </div>
         </div>
+</Link>
+      
+
        </div>
     </div>
   )
