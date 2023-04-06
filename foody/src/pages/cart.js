@@ -5,6 +5,7 @@ import styles from "../styles/Cart.module.css";
 import useStore from "store/store";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import OrderModal from "@/components/OrderModal";
 export default function Cart() {
   const CartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
@@ -96,6 +97,12 @@ export default function Cart() {
         </div>
       </div>
       <Toaster />
+      {/* Modal */}
+      <OrderModal
+      opened = {PaymentMethod === 0}
+      setOpened = {setPaymentMethod}
+      PaymentMethod = {PaymentMethod}
+      />
     </Layout>
   );
 }
