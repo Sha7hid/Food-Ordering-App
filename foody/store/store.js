@@ -23,6 +23,12 @@ set((state)=> ({
     cart : {
         pizzas : state.cart.pizzas.filter((_,i)=> i !=index)
     }
+})),
+resetCart: () => 
+set(()=>({
+    cart: {
+        pizzas:[]
+    }
 }))
     })
 );

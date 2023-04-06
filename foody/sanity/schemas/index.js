@@ -1,5 +1,6 @@
-import Pizza from "./Pizza";
+import Pizza from "./pizza";
+import Order from "./order";
 
 export const schemaTypes = [
-    Pizza
+    Pizza,Order
 ]
