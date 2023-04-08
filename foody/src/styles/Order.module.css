@@ -25,3 +25,41 @@
 .details>div>span:nth-of-type(2){
     font-weight: 600;
 }
+.statusContainer{
+    display: flex;
+    gap: 15rem;
+
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    position: relative;
+    align-items: center;
+    gap: 2.2rem;
+}
+.status>*{
+    fill: var(--themeRed);
+}
+.spinner{
+    position: absolute;
+    left: -1.9rem;
+    top: -1.7rem;
+    width: 6rem;
+}
+.pending{
+    width: max-content;
+    background-color: orange ;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    color: white;
+}
+.completed{
+    border-radius: 1rem;
+    color: white;
+    background-color: rgb(159, 230, 53);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+}

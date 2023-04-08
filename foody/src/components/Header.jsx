@@ -1,13 +1,16 @@
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import Logo from "public/Logo.png";
-import { UilShoppingBag } from "@iconscout/react-unicons";
+import { UilShoppingBag , UilReceipt } from "@iconscout/react-unicons";
 import useStore from "../../store/store";
 import Link from "next/link";
+import { useState } from "react";
+import { useEffect } from "react";
 export default function Header() {
-  // state in terminal
-  const state = useStore((state) => state);
-  console.log(state);
+  const [Order, setOrder] =useState("") 
+  useEffect(() =>{
+    setOrder(localStorage.getItem("order"))
+  },[])
   const items = useStore((state) => state.cart.pizzas.length);
   return (
     <div className={styles.header}>
@@ -18,7 +21,8 @@ export default function Header() {
       </div>
       {/* menu side */}
       <ul className={styles.menu}>
-        <li>Home</li>
+        <Link href={'/'}> <li>Home</li></Link>
+       
         <li>Menu</li>
         <li>Contact</li>
       </ul>
@@ -30,6 +34,18 @@ export default function Header() {
             <div className={styles.badge}>{items}</div>
           </div>
         </Link>
+
+        {Order && (
+          <Link href={`/order/${Order}`}>
+            <div className={styles.cart}>
+              <UilReceipt size={35} color='#2E2E2E'/>
+          {Order != "" && <div className={styles.badge}>
+1
+          </div>
+          }
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );
