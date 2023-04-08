@@ -59,6 +59,12 @@ export default function Orders({ order }) {
 <div className={styles.status}>
 <Image src={Cooking} alt="" width={50} height={50}/>
 <span>Cooking</span>
+
+{order.status === 1 && (
+    <div className={styles.spinner}>
+<Image src={Spinner} alt=""/>
+    </div>
+)}
 </div>
 <div className={styles.status}>
 <Image src={Onway} alt="" width={50} height={50}/>
